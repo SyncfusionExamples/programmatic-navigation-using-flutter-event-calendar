@@ -9,14 +9,7 @@ class ProgrammaticViewNavigation extends StatefulWidget {
 }
 
 class ViewNavigationState extends State<ProgrammaticViewNavigation> {
-  CalendarController _controller;
-
-  @override
-  void initState() {
-    _controller = CalendarController();
-    _controller.view = CalendarView.workWeek;
-    super.initState();
-  }
+  final CalendarController _controller = CalendarController();
 
   @override
   Widget build(BuildContext context) {
@@ -34,9 +27,9 @@ class ViewNavigationState extends State<ProgrammaticViewNavigation> {
                 },
               ),
             ),
-            Container(
-              height: 560,
+            Expanded(
               child: SfCalendar(
+                view: CalendarView.workWeek,
                 controller: _controller,
               ),
             ),
